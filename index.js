@@ -7,6 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(router);
+app.use(errorHandler);
 
 app.listen(8080, () => {
   console.log("server ok in 8080");

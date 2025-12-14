@@ -9,7 +9,7 @@ class Service {
 
   getById = async (id) => {
     const item = await this.dao.getById(id);
-    if (!item) throw new Error("ID not found");
+    if (!item) throw new Error("ID no encontrado");
     return item;
   };
 
