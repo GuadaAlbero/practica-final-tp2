@@ -1,5 +1,7 @@
 import express from "express";
 import router from "./router/router.js";
+import errorHandler from "./middlewares/errorHandler.js";
+
 
 const app = express();
 

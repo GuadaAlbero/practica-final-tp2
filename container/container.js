@@ -7,3 +7,4 @@ const service = new Service(dao);
 const controller = new Controller(service);
 
 export default controller;
+

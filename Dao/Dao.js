@@ -1,33 +1,32 @@
 class Dao {
-  data = [];
+  constructor() {
+    this.data = []; // acá guardamos los vuelos en memoria
+  }
 
+  // Obtener todos los vuelos
   getAll = async () => {
     return this.data;
   };
 
+  // Buscar vuelo por ID
   getById = async (id) => {
-    return this.data.find(item => item.id === id);
+    return this.data.find((v) => v.id === id);
   };
 
-  create = async (data) => {
-    this.data.push(data);
-    return data;
+  // Crear nuevo vuelo
+  create = async (vuelo) => {
+    this.data.push(vuelo);
+    return vuelo;
   };
 
+  // Actualizar vuelo existente
   update = async (id, newData) => {
-    const index = this.data.findIndex(item => item.id === id);
-    if (index === -1) throw new Error("ID not found");
-
-    this.data[index] = { ...this.data[index], ...newData };
-    return this.data[index];
-  };
-
-  delete = async (id) => {
-    const index = this.data.findIndex(item => item.id === id);
-    if (index === -1) throw new Error("ID not found");
-
-    this.data.splice(index, 1);
-    return true;
+    const index = this.data.findIndex((v) => v.id === id);
+    if (index !== -1) {
+      this.data[index] = newData;
+      return this.data[index];
+    }
+    return null;
   };
 }
 
